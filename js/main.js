@@ -10,19 +10,20 @@ const balanceResult = document.querySelector('.js_balanceResult');
 function getRandomNumber(max) {
   return Math.ceil(Math.random() * max);
 }
-function win() {
-  const inputValue = input.value;
-  balanceResult.innerHTML = parseInt(input.value) * 2;
+
+function resultWin() {
+    parseInt(balanceResult.value) + (parseInt(input.value) * 2));
 }
-function loose() {
-  const inputValue = input.value;
-  balanceResult.innerHTML = parseInt(input.value) / 2;
-}
+function resultLoose() {
+    parseInt(balanceResult.value) + (parseInt(input.value) * 2));
+ }
 
 function winLoose() {
   event.preventDefault();
   const numAleat = getRandomNumber(6);
   const selectValue = parseInt(select.value);
+  const inputValue = input.value;
+
   if (numAleat === selectValue) {
     // ganas
     text.innerHTML = `Has ganado el doble de lo apostado.`;
@@ -38,3 +39,5 @@ function handleClickBtn(event) {
 }
 
 button.addEventListener('click', handleClickBtn);
+
+
