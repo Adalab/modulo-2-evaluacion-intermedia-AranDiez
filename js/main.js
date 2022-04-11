@@ -6,6 +6,8 @@ const input = document.querySelector('.js_input');
 const text = document.querySelector('.js_text');
 const balance = document.querySelector('.js_balance');
 const balanceResult = document.querySelector('.js_balanceResult');
+const reset = document.querySelector('.js_reset');
+let wallet = 50;
 
 function getRandomNumber(max) {
   return Math.ceil(Math.random() * max);
@@ -13,11 +15,11 @@ function getRandomNumber(max) {
 
 function win() {
   const inputValue = input.value;
-  balanceResult.innerHTML = parseInt(input.value) * 2;
+  balanceResult.innerHTML = wallet * 2;
 }
 function loose() {
   const inputValue = input.value;
-  balanceResult.innerHTML = parseInt(input.value) / 2;
+  balanceResult.innerHTML = wallet / 2;
 }
 
 function winLoose() {
@@ -43,3 +45,12 @@ function handleClickBtn(event) {
 }
 
 button.addEventListener('click', handleClickBtn);
+
+function handleClickReset(event) {
+  event.preventDefault();
+  text.innerHTML = `Vamos a jugar!`;
+  wallet = 50;
+  balanceResult.innerHTML = 50;
+}
+
+reset.addEventListener('click', handleClickReset);
